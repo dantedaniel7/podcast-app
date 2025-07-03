@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body style="background: #f5f5f5;">
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Panel de Administración</h1>
+            <div>
+                <span>Bienvenido, <%= username %></span>
+                <a href="/admin/logout" style="margin-left: 20px;">Cerrar Sesión</a>
+            </div>
+        </div>
+
+        <div class="config-section">
+            <h3>Estado del Stream</h3>
+            <div class="config-item">
+                <span>Estado:</span>
+                <span id="streamStatus">Verificando...</span>
+            </div>
+            <div class="config-item">
+                <span>Oyentes conectados:</span>
+                <span id="listenersCount">0</span>
+            </div>
+        </div>
+
+        <div class="config-section">
+            <h3>Configuración de BUTT</h3>
+            <p>Configura BUTT con los siguientes parámetros:</p>
+            <div class="config-item">
+                <span>Servidor:</span>
+                <code><%= icecastConfig.host %>:<%= icecastConfig.port %></code>
+            </div>
+            <div class="config-item">
+                <span>Punto de montaje:</span>
+                <code><%= icecastConfig.mountPoint %></code>
+            </div>
+            <div class="config-item">
+                <span>Usuario:</span>
+                <code>source</code>
+            </div>
+            <div class="config-item">
+                <span>Contraseña:</span>
+                <code><%= icecastConfig.sourcePassword %></code>
+            </div>
+        </div>
+
+        <div class="config-section">
+            <h3>Actualizar Información del Stream</h3>
+            <form id="updateStreamForm">
+                <div class="form-group">
+                    <label for="streamTitle">Título del Podcast</label>
+                    <input type="text" id="streamTitle" placeholder="Mi Podcast en Vivo">
+                </div>
+                <div class="form-group">
+                    <label for="streamDescription">Descripción</label>
+                    <textarea id="streamDescription" rows="3" placeholder="Descripción del episodio actual"></textarea>
+                </div>
+                <button type="submit" class="login-button">Actualizar</button>
+            </form>
+        </div>
+
+        <div class="config-section">
+            <h3>URL del Reproductor</h3>
+            <p>Comparte esta URL con tus oyentes:</p>
+            <code id="playerUrl">http://localhost:3000</code>
+            <button onclick="copyUrl()" style="margin-left: 10px;">Copiar</button>
+        </div>
+    </div>
+
+    <script>
+        const socket = io();
+        
+        // Actualizar estado del stream
+        socket.on('stream-status', (status) => {
+            document.getElementById('streamStatus').textContent = 
+                status.isLive ? 'En vivo' : 'Sin transmisión';
+        });
+
+        // Actualizar contador de oyentes
+        socket.on('listeners-update', (count) => {
+            document.getElementById('listenersCount').textContent = count;
+        });
+
+        // Formulario de actualización
+        document.getElementById('updateStreamForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const title = document.getElementById('streamTitle').value;
+            const description = document.getElementById('streamDescription').value;
+            
+            socket.emit('update-stream-info', {
+                title: title,
+                description: description
+            });
+            
+            alert('Información actualizada');
+        });
+
+        // Copiar URL
+        function copyUrl() {
+            const url = document.getElementById('playerUrl').textContent;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('URL copiada al portapapeles');
+            });
+        }
+
+        // Actualizar URL según el host actual
+        document.getElementById('playerUrl').textContent = window.location.origin;
+    </script>
+</body>
+</html>
