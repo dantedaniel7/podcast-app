@@ -1,101 +1,130 @@
-🎙️ Live Podcast Streaming Platform
-Node.js
-Express.js
-Socket.io
-JavaScript
-EJS
-CSS3
+# 🎙️ Live Podcast Streaming Platform
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socketdotio&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![EJS](https://img.shields.io/badge/EJS-B4CA65?style=for-the-badge&logo=ejs&logoColor=black)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
 Sistema completo de transmisión de podcasts en tiempo real con arquitectura MVC, desarrollado con Node.js, Express, Socket.IO e integración con Icecast2 y BUTT para streaming de audio profesional.
 
-📋 Tabla de Contenidos
-Demo
-Características
-Arquitectura
-Tecnologías
-Requisitos
-Instalación
-Configuración
-Uso
-Despliegue
-Estructura del Proyecto
-API Endpoints
-Contribución
-Licencia
-🎬 Demo
-Panel de Oyentes
-Listener Interface
+## 📋 Tabla de Contenidos
 
-Panel de Administración
-Admin Dashboard
+- [Demo](#-demo)
+- [Características](#-características)
+- [Arquitectura](#-arquitectura)
+- [Tecnologías](#-tecnologías)
+- [Requisitos](#-requisitos)
+- [Instalación](#-instalación)
+- [Configuración](#-configuración)
+- [Uso](#-uso)
+- [Despliegue](#-despliegue)
+- [Estructura del Proyecto](#-estructura-del-proyecto)
+- [API Endpoints](#-api-endpoints)
+- [Licencia](#-licencia)
+- [Contribución](#-contribución)
+- [Autor](#-autor)
 
-✨ Características
-Para Oyentes
-🎵 Reproductor en tiempo real con interfaz moderna y responsive
-📊 Contador de oyentes en vivo actualizado mediante WebSockets
-🔄 Actualización automática del estado de transmisión
-📱 Diseño responsive optimizado para todos los dispositivos
-🎨 Interfaz moderna con glassmorphism y animaciones suaves
-Para Administradores
-🔐 Panel administrativo seguro con autenticación
-📡 Integración con BUTT para transmisión profesional
-📝 Actualización dinámica de información del podcast
-👥 Monitoreo en tiempo real de oyentes conectados
-⚙️ Configuración centralizada de parámetros de streaming
-Técnicas
-🏗️ Arquitectura MVC bien estructurada y escalable
-🔌 WebSockets para comunicación bidireccional en tiempo real
-🎙️ Integración con Icecast2 para streaming de audio
-🔒 Autenticación segura con bcrypt y sesiones
-📦 Modular y extensible preparado para futuras mejoras
-🏛️ Arquitectura
-MERMAID
+## 🎬 Demo
 
-graph TB
-    A[BUTT Client] -->|Audio Stream| B[Icecast Server]
-    B -->|Mount Point| C[Node.js Server]
-    C -->|WebSocket| D[Client Browser]
-    C -->|HTTP| D
-    E[Admin Panel] -->|Config| C
-    C -->|Monitor| B
-    
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:2px
-    style C fill:#bfb,stroke:#333,stroke-width:2px
-    style D fill:#fbf,stroke:#333,stroke-width:2px
-    style E fill:#fbb,stroke:#333,stroke-width:2px
-🛠️ Tecnologías
-Backend
-Node.js - Entorno de ejecución
-Express.js - Framework web
-Socket.IO - WebSockets para tiempo real
-EJS - Motor de plantillas
-bcrypt - Encriptación de contraseñas
-express-session - Manejo de sesiones
-Frontend
-HTML5 - Estructura
-CSS3 - Estilos con diseño moderno
-JavaScript - Interactividad
-Socket.IO Client - Comunicación en tiempo real
-Streaming
-Icecast2 - Servidor de streaming
-BUTT - Cliente de transmisión
-📋 Requisitos
-Desarrollo Local (Windows/Mac/Linux)
-Node.js 14.x o superior
-NPM 6.x o superior
-Icecast2
-BUTT (Broadcast Using This Tool)
-Producción (VPS)
-Ubuntu 20.04 o superior
-Node.js 14.x o superior
-PM2 (gestor de procesos)
-Nginx (proxy reverso)
-Icecast2
-🚀 Instalación
-1. Clonar el repositorio
-BASH
+### Panel de Oyentes
+<div align="center">
+  <img src="https://via.placeholder.com/800x400/1e1e2e/ffffff?text=Interfaz+de+Reproductor+de+Podcast" alt="Listener Interface" width="800">
+  <p><em>Interfaz moderna con diseño glassmorphism para los oyentes</em></p>
+</div>
 
+### Panel de Administración
+<div align="center">
+  <img src="https://via.placeholder.com/800x400/667eea/ffffff?text=Panel+de+Administración" alt="Admin Dashboard" width="800">
+  <p><em>Panel completo de control para administradores</em></p>
+</div>
+
+## ✨ Características
+
+### Para Oyentes
+- 🎵 **Reproductor en tiempo real** con interfaz moderna y responsive
+- 📊 **Contador de oyentes en vivo** actualizado mediante WebSockets
+- 🔄 **Actualización automática** del estado de transmisión
+- 📱 **Diseño responsive** optimizado para todos los dispositivos
+- 🎨 **Interfaz moderna** con glassmorphism y animaciones suaves
+
+### Para Administradores
+- 🔐 **Panel administrativo seguro** con autenticación
+- 📡 **Integración con BUTT** para transmisión profesional
+- 📝 **Actualización dinámica** de información del podcast
+- 👥 **Monitoreo en tiempo real** de oyentes conectados
+- ⚙️ **Configuración centralizada** de parámetros de streaming
+
+### Técnicas
+- 🏗️ **Arquitectura MVC** bien estructurada y escalable
+- 🔌 **WebSockets** para comunicación bidireccional en tiempo real
+- 🎙️ **Integración con Icecast2** para streaming de audio
+- 🔒 **Autenticación segura** con bcrypt y sesiones
+- 📦 **Modular y extensible** preparado para futuras mejoras
+
+## 🏛️ Arquitectura
+┌─────────────┐ Audio Stream ┌──────────────┐
+│ BUTT │ ─────────────────> │ Icecast2 │
+│ (Client) │ │ Server │
+└─────────────┘ └──────┬───────┘
+│
+Mount Point
+│
+┌─────────────┐ WebSocket ┌───────▼──────┐
+│ Browser │ <─────────────────> │ Node.js │
+│ (Oyentes) │ │ Server │
+└─────────────┘ HTTP/HTTPS └──────────────┘
+▲
+│
+┌──────┴───────┐
+│ Admin │
+│ Panel │
+└──────────────┘
+
+
+Collapse
+
+## 🛠️ Tecnologías
+
+### Backend
+- **Node.js** - Entorno de ejecución
+- **Express.js** - Framework web
+- **Socket.IO** - WebSockets para tiempo real
+- **EJS** - Motor de plantillas
+- **bcrypt** - Encriptación de contraseñas
+- **express-session** - Manejo de sesiones
+
+### Frontend
+- **HTML5** - Estructura
+- **CSS3** - Estilos con diseño moderno
+- **JavaScript** - Interactividad
+- **Socket.IO Client** - Comunicación en tiempo real
+
+### Streaming
+- **Icecast2** - Servidor de streaming
+- **BUTT** - Cliente de transmisión
+
+## 📋 Requisitos
+
+### Desarrollo Local (Windows/Mac/Linux)
+- Node.js 14.x o superior
+- NPM 6.x o superior
+- Icecast2
+- BUTT (Broadcast Using This Tool)
+
+### Producción (VPS)
+- Ubuntu 20.04 o superior
+- Node.js 14.x o superior
+- PM2 (gestor de procesos)
+- Nginx (proxy reverso)
+- Icecast2
+
+## 🚀 Instalación
+
+### 1. Clonar el repositorio
+
+```bash
 git clone https://github.com/tu-usuario/podcast-streaming.git
 cd podcast-streaming
 2. Instalar dependencias
@@ -233,6 +262,33 @@ disconnect               # Desconexión
 stream-status           # Estado del stream
 listeners-update        # Actualización de oyentes
 update-stream-info      # Actualizar info (admin)
+📜 Licencia
+Este proyecto utiliza un modelo de licencia dual:
+
+🆓 Uso Open Source (MIT)
+✅ Uso personal y educativo
+✅ Modificaciones y mejoras
+✅ Uso en proyectos no comerciales
+✅ Contribuciones a la comunidad
+💼 Licencia Comercial
+Se requiere una licencia comercial para:
+
+🏢 Integración en plataformas SaaS
+🏷️ Soluciones white-label
+🚀 Despliegues empresariales
+🎯 Uso como componente principal en productos comerciales
+Obtener Licencia Comercial | Contactar para Consultas
+
+¿No estás seguro qué licencia necesitas?
+Uso	Licencia Requerida
+Aprendizaje y experimentación	Open Source (MIT)
+Proyecto personal sin fines de lucro	Open Source (MIT)
+Sitio web de empresa para streaming interno	Open Source (MIT)
+Servicio de streaming para clientes	Comercial
+Integración en producto que se vende	Comercial
+Plataforma SaaS de podcasts	Comercial
+Para más detalles, consulta el archivo LICENSE.md.
+
 🤝 Contribución
 Las contribuciones son bienvenidas! Por favor:
 
@@ -241,6 +297,8 @@ Crea tu rama de características (git checkout -b feature/AmazingFeature)
 Commit tus cambios (git commit -m 'Add some AmazingFeature')
 Push a la rama (git push origin feature/AmazingFeature)
 Abre un Pull Request
+Por favor, lee CONTRIBUTING.md para más detalles sobre nuestro código de conducta y el proceso de envío de pull requests.
+
 📝 Roadmap
  Sistema de grabación de episodios
  Chat en vivo para oyentes
@@ -254,17 +312,15 @@ Abre un Pull Request
 El contador de oyentes puede tener un pequeño delay
 En algunos navegadores móviles el autoplay está deshabilitado
 Requiere configuración manual de Icecast
-📄 Licencia
-Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
-
 👨‍💻 Autor
-Ing. Michael SOriano
+Tu Nombre
 
-GitHub: @dantedaniel7
+GitHub: @tu-usuario
 LinkedIn: tu-nombre
 Portfolio: tu-portfolio.com
 🙏 Agradecimientos
 Icecast por el servidor de streaming
+BUTT por el cliente de transmisión
 BUTT por el cliente de transmisión
 Socket.IO por la librería de WebSockets
 La comunidad de Node.js por el ecosistema increíble
