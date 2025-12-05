@@ -299,29 +299,9 @@ Push a la rama (git push origin feature/AmazingFeature)
 Abre un Pull Request
 Por favor, lee CONTRIBUTING.md para más detalles sobre nuestro código de conducta y el proceso de envío de pull requests.
 
-📝 Roadmap
- Sistema de grabación de episodios
- Chat en vivo para oyentes
- Estadísticas avanzadas
- Integración con redes sociales
- Sistema de notificaciones push
- Soporte para múltiples podcasts
- API RESTful completa
- Dashboard de analytics
 🐛 Conocidos Issues
 El contador de oyentes puede tener un pequeño delay
 En algunos navegadores móviles el autoplay está deshabilitado
 Requiere configuración manual de Icecast
 👨‍💻 Autor
-Tu Nombre
-
-GitHub: @tu-usuario
-LinkedIn: tu-nombre
-Portfolio: tu-portfolio.com
-🙏 Agradecimientos
-Icecast por el servidor de streaming
-BUTT por el cliente de transmisión
-BUTT por el cliente de transmisión
-Socket.IO por la librería de WebSockets
-La comunidad de Node.js por el ecosistema increíble
-Hecho con ❤️ y mucho ☕
+Michael Soriano
